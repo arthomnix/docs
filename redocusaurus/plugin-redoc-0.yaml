@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: v2.2.4
+  version: v2.3.1
   title: Labrinth
   description: >
     This API is documented in the **OpenAPI format** and is available for
@@ -769,7 +769,8 @@ paths:
                   type: array
                   items:
                     type: string
-                    example: fabric
+                    example:
+                      - fabric
                 game_versions:
                   type: array
                   items:
@@ -808,9 +809,10 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Version'
+                type: object
+                properties:
+                  your_hash_here:
+                    $ref: '#/components/schemas/Version'
         '400':
           description: Input is invalid
       requestBody:
@@ -876,7 +878,8 @@ paths:
                   type: array
                   items:
                     type: string
-                  example: fabric
+                  example:
+                    - fabric
                 game_versions:
                   type: array
                   items:
@@ -895,9 +898,10 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Version'
+                type: object
+                properties:
+                  your_hash_here:
+                    $ref: '#/components/schemas/Version'
         '400':
           description: Input is invalid
   /user/{id|username}:
